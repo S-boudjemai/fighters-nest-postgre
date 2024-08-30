@@ -16,7 +16,6 @@ export class FightersService {
     @InjectRepository(Fighter) private fighterRepository: Repository<Fighter>,
   ) {}
 
-  // create a fighter entity and save it to the database with createFighterDto which is a data transfer object
   async create(createFighterDto: CreateFighterDto): Promise<Fighter> {
     const fighter = this.fighterRepository.create(createFighterDto);
     return await this.fighterRepository.save(fighter);
@@ -47,13 +46,13 @@ export class FightersService {
     if (!fighter) {
       throw new NotFoundException(`Fighter #${id} not found`);
     }
-    // 3. Fusionner les nouvelles données avec l'existant
+    //Fusionner les nouvelles données avec l'existant
     Object.assign(fighter, updateFighterDto);
 
-    // 4. Sauvegarder les modifications
+    //  Sauvegarder les modifications
     await this.fighterRepository.save(fighter);
 
-    // 5. Retourner l'objet mis à jour
+    //  Retourner l'objet mis à jour
     return fighter;
   }
 

@@ -16,4 +16,7 @@ export class Fighter {
 
   @Column()
   weight: number;
+
+  @Column()
+  category: string;
 }

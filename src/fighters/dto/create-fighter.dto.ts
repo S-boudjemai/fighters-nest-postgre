@@ -3,4 +3,5 @@ export class CreateFighterDto {
   age: number;
   nationality: string;
   weight: number;
+  category: string;
 }
